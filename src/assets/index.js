@@ -3,11 +3,13 @@ import loader from './loader.svg'
 import copy from './copy.svg'
 import logo from './logo.svg'
 import tick from './tick.svg'
+import submitIcon from "./submitIcon.svg"
 
 export {
     linkIcon,
     loader,
     copy,
     logo,
-    tick
+    tick,
+    submitIcon
 }
