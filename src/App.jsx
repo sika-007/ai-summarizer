@@ -1,19 +1,18 @@
 import Hero from './components/Hero';
 import Demo from './components/Demo';
-import "./index.css"
 
 const App = () => {
   return (
-		<main>
-			<div className='main'>
-				<div className='gradient' />
+	<main>
+		<div className='main'>
+			<div className='gradient' />
+		</div>
 				
-				<div className='app'>
-					<Hero />
-					<Demo />
-				</div>
-			</div>
-  	</main>
+		<div className='app'>
+			<Hero />
+			<Demo />
+		</div>
+	</main>
   )
 }
 
