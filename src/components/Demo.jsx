@@ -37,11 +37,19 @@ const Demo = () => {
     }
   }
 
-  const handleCopy = (copyUrl) => {
+  const handleUrlCopy = (copyUrl) => {
     setCopied(copyUrl);
     navigator.clipboard.writeText(copyUrl);
     setTimeout(() => {
       setCopied("")
+    }, 3000)
+  }
+
+  const handleSummaryCopy = (copyText) => {
+    setCopied(true);
+    navigator.clipboard.writeText(copyText);
+    setTimeout(() => {
+      setCopied(false)
     }, 3000)
   }
 
@@ -81,7 +89,7 @@ const Demo = () => {
         <div className="flex flex-col gap-1 max-h-60 overflow-y-auto ">
             {allArticles.map((item, index) => (
               <div key={`link-${index}`} onClick={() => setArticle(item)} className="link_card">
-                <div className="copy_btn" title="copy to clipboard" onClick={() => handleCopy(item.url)}>
+                <div className="copy_btn" title="copy link to clipboard" onClick={() => handleUrlCopy(item.url)}>
                   <img
                     src={copied === item.url ? tick : copy}
                     alt="copy icon"
@@ -107,9 +115,12 @@ const Demo = () => {
         ) : (
           article.summary && (
             <div className="flex flex-col gap-3">
-              <h2 className="font-satoshi font-bold text-gray-600 text-xl text-center">
-                Article <span className="blue_gradient">Summary</span>
-              </h2>
+              <div className="flex flex-row justify-between">
+                <h2 className="font-satoshi font-bold text-gray-600 text-xl text-center">
+                  Article <span className="blue_gradient">Summary</span>
+                </h2>
+                <button onClick={() => handleSummaryCopy(article.summary)} className="black_btn">{copied === true ? "copied!!!" : "copy summary"}</button>
+              </div>
               <div className="summary_box">
                 <p className="font-inter font-medium text-md text-gray-700">{article.summary}</p>
               </div>
